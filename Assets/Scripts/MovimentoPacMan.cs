@@ -13,6 +13,12 @@ public class MovimentoPacMan : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        // Vector2 up = new Vector2(0, 3);
+        // Vector2 down = new Vector2(0, -3);
+        // Vector2 right = new Vector2(3, 0);
+        // Vector2 left = new Vector2(-3, 0);
+
         // Move closer to Destination
         Vector2 p = Vector2.MoveTowards(transform.position, dest, speed);
         GetComponent<Rigidbody2D>().MovePosition(p);
@@ -24,10 +30,10 @@ public class MovimentoPacMan : MonoBehaviour
                 dest = (Vector2)transform.position + Vector2.up;
             if (Input.GetKey(KeyCode.RightArrow) && valid(Vector2.right))
                 dest = (Vector2)transform.position + Vector2.right;
-            if (Input.GetKey(KeyCode.DownArrow) && valid(-Vector2.up))
-                dest = (Vector2)transform.position - Vector2.up;
-            if (Input.GetKey(KeyCode.LeftArrow) && valid(-Vector2.right))
-                dest = (Vector2)transform.position - Vector2.right;
+            if (Input.GetKey(KeyCode.DownArrow) && valid(Vector2.down))
+                dest = (Vector2)transform.position + Vector2.down;
+            if (Input.GetKey(KeyCode.LeftArrow) && valid(Vector2.left))
+                dest = (Vector2)transform.position + Vector2.left;
         }
 
         bool valid(Vector2 dir)
