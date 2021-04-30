@@ -1,48 +1,68 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MovimentoPacMan : MonoBehaviour
 {
+
+
+    Vector2 rayDireita = new Vector2(4, 0);
+    Vector2 rayEsquerda = new Vector2(-4, 0);
+    Vector2 rayCima = new Vector2(0, 4);
+    Vector2 rayBaixo = new Vector2(0, -4);
+
     public float speed = 0.5f;
     Vector2 dest = Vector2.zero;
     void Start()
     {
         dest = transform.position;
+
     }
 
     private void FixedUpdate()
     {
 
-        // Vector2 up = new Vector2(0, 3);
-        // Vector2 down = new Vector2(0, -3);
-        // Vector2 right = new Vector2(3, 0);
-        // Vector2 left = new Vector2(-3, 0);
 
-        // Move closer to Destination
         Vector2 p = Vector2.MoveTowards(transform.position, dest, speed);
         GetComponent<Rigidbody2D>().MovePosition(p);
 
-        // Check for Input if not moving
         if ((Vector2)transform.position == dest)
         {
-            if (Input.GetKey(KeyCode.UpArrow) && valid(Vector2.up))
+            if (Input.GetKey(KeyCode.UpArrow) && valid(rayCima))
                 dest = (Vector2)transform.position + Vector2.up;
-            if (Input.GetKey(KeyCode.RightArrow) && valid(Vector2.right))
+            if (Input.GetKey(KeyCode.RightArrow) && valid(rayDireita))
                 dest = (Vector2)transform.position + Vector2.right;
-            if (Input.GetKey(KeyCode.DownArrow) && valid(Vector2.down))
-                dest = (Vector2)transform.position + Vector2.down;
-            if (Input.GetKey(KeyCode.LeftArrow) && valid(Vector2.left))
-                dest = (Vector2)transform.position + Vector2.left;
+            if (Input.GetKey(KeyCode.DownArrow) && valid(rayBaixo))
+                dest = (Vector2)transform.position - Vector2.up;
+            if (Input.GetKey(KeyCode.LeftArrow) && valid(rayEsquerda))
+                dest = (Vector2)transform.position - Vector2.right;
         }
 
         bool valid(Vector2 dir)
         {
-            // Cast Line from 'next to Pac-Man' to 'Pac-Man'
             Vector2 pos = transform.position;
-            RaycastHit2D hit = Physics2D.Linecast(pos + dir, pos);
-            return (hit.collider == GetComponent<Collider2D>());
+            Debug.DrawRay(pos, dir, Color.red, 1.0f, false);
+            Debug.DrawRay(pos + Vector2.up, dir, Color.red, 1.0f, false);
+            Debug.DrawRay(pos - Vector2.up, dir, Color.red, 1.0f, false);
+            Debug.DrawRay(pos + Vector2.right, dir, Color.red, 1.0f, false);
+            Debug.DrawRay(pos - Vector2.right, dir, Color.red, 1.0f, false);
+            RaycastHit2D hitCenter = Physics2D.Raycast(pos, dir, 2f);
+            RaycastHit2D hitTop = Physics2D.Raycast(pos + Vector2.up , dir, 2f);
+            RaycastHit2D hitBottom = Physics2D.Raycast(pos - Vector2.up, dir, 2f);
+            RaycastHit2D hitRight = Physics2D.Raycast(pos + Vector2.right, dir, 2f);
+            RaycastHit2D hitLeft = Physics2D.Raycast(pos - Vector2.right, dir, 2f);
+            if (hitCenter.collider != null || 
+                hitTop.collider != null || 
+                hitBottom.collider != null || 
+                hitRight.collider != null || 
+                hitLeft.collider != null)
+            {
+
+                Debug.Log("Hit Something!");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }
-
