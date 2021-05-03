@@ -3,7 +3,6 @@
 public class MovimentoPacMan : MonoBehaviour
 {
 
-
     Vector2 vecDireita = new Vector2(4, 0);
     Vector2 vecEsquerda = new Vector2(-4, 0);
     Vector2 vecCima = new Vector2(0, 4);
