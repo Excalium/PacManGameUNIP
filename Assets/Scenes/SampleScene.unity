@@ -2972,7 +2972,6 @@ GameObject:
   - component: {fileID: 137309160}
   - component: {fileID: 137309163}
   - component: {fileID: 137309162}
-  - component: {fileID: 137309164}
   - component: {fileID: 137309161}
   m_Layer: 2
   m_Name: PacManDot (24)
@@ -3083,18 +3082,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &137309164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 137309159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d709aca3b8cb024eaabfa35cd186e6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &139136662
 GameObject:
   m_ObjectHideFlags: 0
@@ -4615,7 +4602,6 @@ GameObject:
   - component: {fileID: 206989834}
   - component: {fileID: 206989838}
   - component: {fileID: 206989837}
-  - component: {fileID: 206989836}
   - component: {fileID: 206989835}
   m_Layer: 2
   m_Name: PacManDot (161)
@@ -4648,18 +4634,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 034fd8bd2e85e8a4e8d09b4c9c0a061e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &206989836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 206989833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d709aca3b8cb024eaabfa35cd186e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &206989837
@@ -9303,7 +9277,6 @@ GameObject:
   - component: {fileID: 412182467}
   - component: {fileID: 412182471}
   - component: {fileID: 412182470}
-  - component: {fileID: 412182469}
   - component: {fileID: 412182468}
   m_Layer: 2
   m_Name: PacManDot (81)
@@ -9336,18 +9309,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 034fd8bd2e85e8a4e8d09b4c9c0a061e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &412182469
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 412182466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d709aca3b8cb024eaabfa35cd186e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &412182470
@@ -9679,7 +9640,6 @@ GameObject:
   - component: {fileID: 434858642}
   - component: {fileID: 434858646}
   - component: {fileID: 434858645}
-  - component: {fileID: 434858644}
   - component: {fileID: 434858643}
   m_Layer: 2
   m_Name: PacManDot (188)
@@ -9712,18 +9672,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 034fd8bd2e85e8a4e8d09b4c9c0a061e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &434858644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434858641}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d709aca3b8cb024eaabfa35cd186e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &434858645
@@ -10055,7 +10003,6 @@ GameObject:
   - component: {fileID: 444978312}
   - component: {fileID: 444978316}
   - component: {fileID: 444978315}
-  - component: {fileID: 444978314}
   - component: {fileID: 444978313}
   m_Layer: 2
   m_Name: PacManDot (55)
@@ -10088,18 +10035,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 034fd8bd2e85e8a4e8d09b4c9c0a061e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &444978314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444978311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d709aca3b8cb024eaabfa35cd186e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &444978315
@@ -12667,7 +12602,6 @@ GameObject:
   - component: {fileID: 518414699}
   - component: {fileID: 518414703}
   - component: {fileID: 518414702}
-  - component: {fileID: 518414701}
   - component: {fileID: 518414700}
   m_Layer: 2
   m_Name: PacManDot (96)
@@ -12700,18 +12634,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 034fd8bd2e85e8a4e8d09b4c9c0a061e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &518414701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 518414698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d709aca3b8cb024eaabfa35cd186e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &518414702
@@ -17959,7 +17881,6 @@ GameObject:
   - component: {fileID: 720207427}
   - component: {fileID: 720207430}
   - component: {fileID: 720207429}
-  - component: {fileID: 720207431}
   - component: {fileID: 720207428}
   m_Layer: 2
   m_Name: PacManDot (1)
@@ -18070,18 +17991,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &720207431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720207426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d709aca3b8cb024eaabfa35cd186e6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &723369635
 GameObject:
   m_ObjectHideFlags: 0
@@ -19844,7 +19753,6 @@ GameObject:
   - component: {fileID: 788858876}
   - component: {fileID: 788858880}
   - component: {fileID: 788858879}
-  - component: {fileID: 788858878}
   - component: {fileID: 788858877}
   m_Layer: 2
   m_Name: PacManDot (133)
@@ -19877,18 +19785,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 034fd8bd2e85e8a4e8d09b4c9c0a061e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &788858878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 788858875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d709aca3b8cb024eaabfa35cd186e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &788858879
@@ -35758,7 +35654,6 @@ GameObject:
   - component: {fileID: 1676321641}
   - component: {fileID: 1676321645}
   - component: {fileID: 1676321644}
-  - component: {fileID: 1676321643}
   - component: {fileID: 1676321642}
   m_Layer: 2
   m_Name: PacManDot (120)
@@ -35791,18 +35686,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 034fd8bd2e85e8a4e8d09b4c9c0a061e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1676321643
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1676321640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d709aca3b8cb024eaabfa35cd186e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &1676321644
@@ -38974,7 +38857,6 @@ GameObject:
   - component: {fileID: 1808670658}
   - component: {fileID: 1808670662}
   - component: {fileID: 1808670661}
-  - component: {fileID: 1808670660}
   - component: {fileID: 1808670659}
   m_Layer: 2
   m_Name: PacManDot (160)
@@ -39007,18 +38889,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 034fd8bd2e85e8a4e8d09b4c9c0a061e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1808670660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808670657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d709aca3b8cb024eaabfa35cd186e6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!61 &1808670661
