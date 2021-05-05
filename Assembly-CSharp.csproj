@@ -64,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\MovimentoCarros.cs" />
     <Compile Include="Assets\Scripts\MovimentoPacMan.cs" />
     <Compile Include="Assets\Scripts\PacManDot.cs" />
     <Compile Include="Assets\Scripts\TrocarCena.cs" />
