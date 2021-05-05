@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class MovimentoPacMan : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class MovimentoPacMan : MonoBehaviour
         dest = transform.position;
 
     }
+
 
     private void FixedUpdate()
     {
@@ -70,5 +72,64 @@ public class MovimentoPacMan : MonoBehaviour
                 return true;
             }
         }
+
+        if (powerUpSpeedAtivo && (speed >= 0.5f && speed < 0.6f))
+            speed += 0.7f;
+        if (!powerUpSpeedAtivo && (speed >= 1.2f && speed < 1.3f))
+            speed -= 0.7f;
+        if (powerUpDestroyAtivo)
+        {
+            //Fly power up logic 
+        }
     }
+
+    public GameObject PowerUp;
+    public int timer = 5;
+    bool powerUpSpeedAtivo;
+    bool powerUpDestroyAtivo;
+    Coroutine cor;
+
+
+
+    void OnTriggerEnter2D(Collider2D powerup)
+    {
+        if (powerup.name == "PowerUpSpeed")
+        {
+            Debug.Log("Power up de Velocidade adquirido!");
+            if (cor != null)
+            {
+                Debug.Log("PowerUp Renovado!");
+                StopCoroutine(cor);
+                cor = null;
+            }
+            cor = StartCoroutine(SpeedPower());
+        }
+        
+        if (powerup.name == "PowerUpDestroy")
+        {
+            if (cor != null)
+            {
+                StopCoroutine(cor);
+                cor = null;
+            }
+            cor = StartCoroutine(DestroyPower());
+        }
+
+    }
+
+    private IEnumerator SpeedPower()
+    {
+        powerUpSpeedAtivo = true;
+        yield return new WaitForSecondsRealtime(timer);
+        powerUpSpeedAtivo = false;
+        Debug.Log("PowerUp de Velocidade acabou! (Tempo Excedido)");
+    }
+
+    private IEnumerator DestroyPower()
+    {
+        powerUpDestroyAtivo = true;
+        yield return new WaitForSecondsRealtime(timer);
+        powerUpDestroyAtivo = false;
+    }
+
 }

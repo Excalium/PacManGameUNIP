@@ -5,7 +5,6 @@ using System;
 
 public class PacManDot : MonoBehaviour
 {
-    private MovimentoPacMan teste;
 
     void OnTriggerEnter2D(Collider2D co)
     {
@@ -13,8 +12,8 @@ public class PacManDot : MonoBehaviour
         if (co.name == "PacMan")
         {
             Destroy(gameObject);
-            //teste = GetComponent<MovimentoPacMan>().AddPonto();
-            //co.GetComponent<MovimentoPacMan>().AddPonto();
+            Score.pontos += 10;
+            Debug.Log("Pontos: " + Score.pontos);
         }
     }
 }
