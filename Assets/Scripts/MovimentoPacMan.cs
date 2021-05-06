@@ -76,9 +76,8 @@ public class MovimentoPacMan : MonoBehaviour
     }
 
     //Variáveis para PowerUps
-    public GameObject PowerUp;
-    public int timer = 10;
-    bool powerUpSpeedAtivo;
+    int timer = 10;
+    public bool powerUpSpeedAtivo;
     public bool powerUpDestroyAtivo;
     Coroutine cor;
 
@@ -122,7 +121,6 @@ public class MovimentoPacMan : MonoBehaviour
         powerUpDestroyAtivo = true;
         StartCoroutine(Piscar());
         yield return new WaitForSecondsRealtime(timer);
-        powerUpDestroyAtivo = false;
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
         Debug.Log("PowerUp de Destruição acabou! (Tempo Excedido)");
     }
@@ -136,6 +134,7 @@ public class MovimentoPacMan : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().color = Color.white;
             yield return new WaitForSecondsRealtime(0.25f);
         }
+        powerUpDestroyAtivo = false;
     }
 
 }
