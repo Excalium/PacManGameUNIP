@@ -20,11 +20,9 @@ public class MovimentoCarros : MonoBehaviour
                                                 speed);
                 GetComponent<Rigidbody2D>().MovePosition(p);
             }
-            // Waypoint reached, select next one
             else cur = (cur + 1) % waypoints.Length;
         }
 
-        // Animation
         Vector2 dir = waypoints[cur].position - transform.position;
         GetComponent<Animator>().SetFloat("DirX", dir.x);
         GetComponent<Animator>().SetFloat("DirY", dir.y);

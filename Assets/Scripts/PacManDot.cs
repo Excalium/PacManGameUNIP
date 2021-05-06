@@ -13,7 +13,10 @@ public class PacManDot : MonoBehaviour
         {
             Destroy(gameObject);
             Score.pontos += 10;
+            Score.contDots += 1;
             Debug.Log("Pontos: " + Score.pontos);
+            Debug.Log("Dots: " + Score.contDots);
+
         }
     }
 }

@@ -13,6 +13,9 @@ public class PowerUps : MonoBehaviour
         if (co.name == "PacMan")
         {
             Destroy(gameObject);
+            Score.pontos += 50;
+            Debug.Log("Pontos: " + Score.pontos);
+            Debug.Log("Dots: " + Score.contDots);
         }
     }
 }

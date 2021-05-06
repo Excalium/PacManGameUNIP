@@ -1,8 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+
 
 public class MovimentoPacMan : MonoBehaviour
 {
+    //Variável de vida do PacMan
+    public int vidaRestante = 1;
+
     //Variáveis para tratamento de Raycasts e movimentação
     Vector2 vecDireita = new Vector2(4, 0);
     Vector2 vecEsquerda = new Vector2(-4, 0);
@@ -127,7 +132,7 @@ public class MovimentoPacMan : MonoBehaviour
 
     private IEnumerator Piscar()
     {
-        for(int i = 0; i < timer*2; i++)
+        for (int i = 0; i < timer * 2; i++)
         {
             gameObject.GetComponent<SpriteRenderer>().color = Color.red;
             yield return new WaitForSecondsRealtime(0.25f);
