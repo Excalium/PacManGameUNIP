@@ -11,12 +11,10 @@ public class PacManDot : MonoBehaviour
 
         if (co.name == "PacMan")
         {
-            Destroy(gameObject);
-            Score.pontos += 10;
+            GetComponent<AudioSource>().Play();
+            GetComponent<Renderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
             Score.contDots += 1;
-            Debug.Log("Pontos: " + Score.pontos);
-            Debug.Log("Dots: " + Score.contDots);
-
         }
     }
 }

@@ -1,26 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.SceneManagement;
 
 
 public class MovimentoPacMan : MonoBehaviour
 {
-    //Variável de vida do PacMan
-    public int vidaRestante = 1;
 
     //Variáveis para tratamento de Raycasts e movimentação
+
+    //Movimentação
     Vector2 vecDireita = new Vector2(4, 0);
     Vector2 vecEsquerda = new Vector2(-4, 0);
     Vector2 vecCima = new Vector2(0, 4);
     Vector2 vecBaixo = new Vector2(0, -4);
 
+    //Raycast
     Vector2 rayX = new Vector2(1.5f, 0);
     Vector2 rayY = new Vector2(0, 1.5f);
 
+    //Variáveis gerais
     public float speed = 0.34f;
     Vector2 dest = Vector2.zero;
     void Start()
     {
+        // Pega a posição inicial para dar início ao jogo
         dest = transform.position;
     }
 
@@ -44,17 +46,25 @@ public class MovimentoPacMan : MonoBehaviour
         }
 
         Vector2 dire = dest - (Vector2)transform.position;
+
+        //Realiza a animação do PacMan para virar de acordo com a direção
         GetComponent<Animator>().SetFloat("DirX", dire.x);
         GetComponent<Animator>().SetFloat("DirY", dire.y);
 
         bool valid(Vector2 dir)
         {
             Vector2 pos = transform.position;
+
+            //DrawRay é utilizado para debugar o código, pois desenha os RayCasts.
             Debug.DrawRay(pos, dir, Color.red, 1.0f, false);
             Debug.DrawRay(pos + rayY, dir, Color.blue, 1.0f, false);
             Debug.DrawRay(pos - rayY, dir, Color.blue, 1.0f, false);
             Debug.DrawRay(pos + rayX, dir, Color.green, 1.0f, false);
             Debug.DrawRay(pos - rayX, dir, Color.green, 1.0f, false);
+
+            //Raycast é utilizado para bloquear a movimentação do jogador (PacMan)
+            //caso encontre uma parede (collider)
+
             RaycastHit2D hitCenter = Physics2D.Raycast(pos, dir, 2f);
             RaycastHit2D hitTop = Physics2D.Raycast(pos + rayY, dir, 1.5f);
             RaycastHit2D hitBottom = Physics2D.Raycast(pos - rayY, dir, 1.5f);
@@ -84,32 +94,30 @@ public class MovimentoPacMan : MonoBehaviour
     int timer = 10;
     public bool powerUpSpeedAtivo;
     public bool powerUpDestroyAtivo;
-    Coroutine cor;
+    Coroutine corSpeed;
+    Coroutine corDestroy;
+
 
     void OnTriggerEnter2D(Collider2D outro)
     {
         if (outro.name == "PowerUpSpeed")
         {
-            Debug.Log("Power up de Velocidade adquirido!");
-            if (cor != null)
+            if (corSpeed != null && powerUpSpeedAtivo)
             {
-                Debug.Log("PowerUp de Velocidade Renovado!");
-                StopCoroutine(cor);
-                cor = null;
+                StopCoroutine(corSpeed);
+                corSpeed = null;
             }
-            cor = StartCoroutine(SpeedPower());
+            corSpeed = StartCoroutine(SpeedPower());
         }
 
         if (outro.name == "PowerUpDestroy")
         {
-            Debug.Log("Power up de Destruição adquirido!");
-            if (cor != null)
+            if (corDestroy != null && powerUpDestroyAtivo)
             {
-                Debug.Log("PowerUp de Destruição Renovado!");
-                StopCoroutine(cor);
-                cor = null;
+                StopCoroutine(corDestroy);
+                corDestroy = null;
             }
-            cor = StartCoroutine(DestroyPower());
+            corDestroy = StartCoroutine(DestroyPower());
         }
     }
 
@@ -118,7 +126,6 @@ public class MovimentoPacMan : MonoBehaviour
         powerUpSpeedAtivo = true;
         yield return new WaitForSecondsRealtime(timer);
         powerUpSpeedAtivo = false;
-        Debug.Log("PowerUp de Velocidade acabou! (Tempo Excedido)");
     }
 
     private IEnumerator DestroyPower()
@@ -127,7 +134,6 @@ public class MovimentoPacMan : MonoBehaviour
         StartCoroutine(Piscar());
         yield return new WaitForSecondsRealtime(timer);
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
-        Debug.Log("PowerUp de Destruição acabou! (Tempo Excedido)");
     }
 
     private IEnumerator Piscar()

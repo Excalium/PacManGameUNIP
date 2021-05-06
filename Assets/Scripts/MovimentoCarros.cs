@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class MovimentoCarros : MonoBehaviour
@@ -34,7 +34,11 @@ public class MovimentoCarros : MonoBehaviour
             StartCoroutine(Destruido());
 
         if (co.name == "PacMan" && !co.transform.GetComponent<MovimentoPacMan>().powerUpDestroyAtivo)
+        {
             Destroy(co.gameObject);
+            SceneManager.LoadScene("Game Over");
+            Score.contDots = 0;
+        }
     }
 
     private IEnumerator Destruido()
