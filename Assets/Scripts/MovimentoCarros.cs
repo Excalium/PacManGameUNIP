@@ -5,21 +5,24 @@ using UnityEngine;
 public class MovimentoCarros : MonoBehaviour
 {
     public Transform[] waypoints;
+    bool carroDestruido = false;
     int cur = 0;
     public float speed = 0.5f;
 
     void FixedUpdate()
     {
-        // Waypoint not reached yet? then move closer
-        if (transform.position != waypoints[cur].position)
+        if (!carroDestruido)
         {
-            Vector2 p = Vector2.MoveTowards(transform.position,
-                                            waypoints[cur].position,
-                                            speed);
-            GetComponent<Rigidbody2D>().MovePosition(p);
+            if (transform.position != waypoints[cur].position)
+            {
+                Vector2 p = Vector2.MoveTowards(transform.position,
+                                                waypoints[cur].position,
+                                                speed);
+                GetComponent<Rigidbody2D>().MovePosition(p);
+            }
+            // Waypoint reached, select next one
+            else cur = (cur + 1) % waypoints.Length;
         }
-        // Waypoint reached, select next one
-        else cur = (cur + 1) % waypoints.Length;
 
         // Animation
         Vector2 dir = waypoints[cur].position - transform.position;
@@ -29,7 +32,18 @@ public class MovimentoCarros : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D co)
     {
-        if (co.name == "PacMan")
+        if (co.name == "PacMan" && co.transform.GetComponent<MovimentoPacMan>().powerUpDestroyAtivo)
+            StartCoroutine(Destruido());
+
+        if (co.name == "PacMan" && !co.transform.GetComponent<MovimentoPacMan>().powerUpDestroyAtivo)
             Destroy(co.gameObject);
+    }
+
+    private IEnumerator Destruido()
+    {
+        carroDestruido = true;
+        GetComponent<Rigidbody2D>().MovePosition(Vector2.MoveTowards(transform.position, new Vector2(-355, -355), speed));
+        yield return new WaitForSecondsRealtime(3);
+        carroDestruido = false;
     }
 }
